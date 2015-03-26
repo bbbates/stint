@@ -17,7 +17,7 @@
 (defn str->binding
   [str->vals v]
   (let [bound-v (or (get str->vals v) (resolve (symbol v)))]
-    (assert bound-v (s "Cannot find interned value with symbol '${v}'"))
+    (assert bound-v (str-intern "Cannot find interned value with symbol '${v}'"))
     (if (var? bound-v) @bound-v bound-v)))
 
 (defn s [form]
